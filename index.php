@@ -3,7 +3,7 @@ include_once './vendor/autoload.php';
 echo '<pre>';
 
 $hosts  = [
-    'host' => '122.200.94.55',
+    'host' => '192.168.1.10',
     'port' => '9200'
 ];
 $client = \Elasticsearch\ClientBuilder::create()->setHosts($hosts)->build();
