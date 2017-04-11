@@ -8,7 +8,7 @@ $hosts  = [
 ];
 $client = \Elasticsearch\ClientBuilder::create()->setHosts($hosts)->build();
 
-/*$params = [
+$params = [
     'index' => 'my_index',
     'body' => [
         'settings' => [
@@ -34,26 +34,14 @@ $client = \Elasticsearch\ClientBuilder::create()->setHosts($hosts)->build();
     ]
 ];
 $response = $client->indices()->create($params);
-var_dump($response);*/
 
+/*
 $param['index'] = 'my_index';
 $flag           = $client->indices()->exists($param);
 #var_dump($flag);
-
+*/
 
 // 开始建索引
-/*
-$data = http_post('https://wxappadmin.28.com/Api/Wxapp/prolist', ['client_id' => 5]);
-$data = json_decode($data,true);
-$ret = [];
-foreach($data['data'] as $val){
-    $ret[] = [
-        'id' => $val['id'],
-        'title' => $val['projectname']
-    ];
-}
-file_put_contents('./data.txt',json_encode($ret,JSON_UNESCAPED_UNICODE));*/
-
 $data = json_decode(file_get_contents('./data.txt'), true);
 foreach ($data as $val) {
     $args          = [];
@@ -67,6 +55,33 @@ foreach ($data as $val) {
 
     $client->index($args);
 }
+
+echo 'OK';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
